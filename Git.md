@@ -160,8 +160,8 @@ local autoSync = config.get("git.autoSync")
 if autoSync then
   print("Enabling git auto sync every " .. autoSync .. " minutes")
 
-  local lastSync = 0
-  
+  local lastSync = os.time()
+
   event.listen {
     name = "cron:secondPassed",
     run = function()
